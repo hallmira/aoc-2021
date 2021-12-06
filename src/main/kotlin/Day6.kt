@@ -11,17 +11,14 @@ class Day6(val input: List<String>) : DayN {
             .count()
 
     private fun simulateDaysForStateByFrequency(days: Int, fish: List<Fish>): BigInteger {
-        return simulateDaysForStateByFrequencyForKernel(days, fish.countFrequency()).entries
+        return simulateDaysForStateByFrequencyKernel(days, fish.countFrequency()).entries
             .map { (k, c) -> c }
             .sumOf { it }
     }
 
-    private fun simulateDaysForStateByFrequencyForKernel(
-        days: Int,
-        fish: Map<Fish, BigInteger>
-    ): Map<Fish, BigInteger> {
+    private fun simulateDaysForStateByFrequencyKernel(days: Int, fish: Map<Fish, BigInteger>): Map<Fish, BigInteger> {
         if (days == 0) return fish
-        return simulateDaysForStateByFrequencyForKernel(days - 1, fish)
+        return simulateDaysForStateByFrequencyKernel(days - 1, fish)
             .flatMap { (k, c) -> k.nextDay().map { Pair(it, c) } }
             .sumFrequencies()
     }

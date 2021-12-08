@@ -3,13 +3,13 @@ import java.nio.file.Paths
 
 class DayNTest {
 
-    val n = 6
-    val maker = ::Day6
+    val n = 8
+    val maker = ::Day8
 
     val input = Paths.get("src/main/resources/day${n}Input").toFile().readLines(Charsets.UTF_8)
 
-    val tinyInput =
-        """3,4,3,1,2""".trimIndent().split("\n")
+    val tinyInput = "acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf"
+        .split("\n")
 
 
     @Test
